@@ -1,0 +1,31 @@
+// schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Laboratorio {
+  id    Int    @id @default(autoincrement())
+  nombre String
+}
+
+model Carrera {
+  id    Int    @id @default(autoincrement())
+  nombre String
+}
+
+model Registro {
+  id                Int       @id @default(autoincrement())
+  matricula         String
+  nombre            String
+  grupo             String
+  materia           String
+  carrera           String
+  nombreLaboratorio String
+  fechaRegistroApp  DateTime  @default(now())
+  fechaRegistroWeb  DateTime  // Nueva columna para la fecha
+}

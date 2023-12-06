@@ -1,0 +1,20 @@
+// schema.prisma
+generator client {
+  provider = "prisma-client-js"
+  output   = "@prisma/client"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Laboratorio {
+  id    Int    @id @default(autoincrement())
+  nombre String
+}
+
+model Carrera {
+  id    Int    @id @default(autoincrement())
+  nombre String
+}
