@@ -17,7 +17,7 @@ const Table = ({ registros }) => {
 
   const cargarRegistros = async () => {
     try {
-      const response = await axios.get('http://192.168.100.8:3001/registro', {
+      const response = await axios.get('http://192.168.100.38:3000/registro', {
       });
 
       // Puedes manejar los registros aquí según tus necesidades
@@ -70,7 +70,7 @@ const Table = ({ registros }) => {
           <select
             value={filtroLaboratorio || 'Todos'}
             onChange={(e) => handleFiltrarPorLaboratorio(e.target.value)}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="p-3 rounded-lg bg-[#e2e2e2]"
           >
             <option value="Todos">Todos</option>
             {laboratorios.map((lab, index) => (
@@ -80,10 +80,8 @@ const Table = ({ registros }) => {
             ))}
           </select>
           <button
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            onClick={() => console.log('Buscar clicado')}
-          >
-            <FontAwesomeIcon icon={faSearch} />
+            className="ml-4 p-[10px] rounded-lg bg-[#e2e2e2] uppercase"
+            onClick={() => console.log('Buscar clicado')}> <FontAwesomeIcon icon={faSearch} />
           </button>
         </div>
         <div className="flex items-center">
@@ -91,10 +89,10 @@ const Table = ({ registros }) => {
             type="date"
             value={fechaSeleccionada}
             onChange={(e) => setFechaSeleccionada(e.target.value)}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="p-[10px] rounded-lg bg-[#e2e2e2]"
           />
           <button
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="ml-4 p-[10px] rounded-lg bg-[#e2e2e2]"
             onClick={handleFiltrarPorFecha}
           >
             Filtrar por Fecha
@@ -107,31 +105,31 @@ const Table = ({ registros }) => {
         )}
       </div>
 
-      <div className="table-container overflow-auto">
-        <table className="min-w-full border border-gray-300">
-          <thead className="bg-tec text-white">
+      <div className="table-container rounded-tl-xl rounded-tr-xl   overflow-auto ">
+        <table className="min-w-full">
+          <thead className="bg-[#a9b0bf] text-gray-700">
             <tr>
-              <th className="py-2 px-4 border border-black text-center">ID</th>
-              <th className="py-2 px-4 border border-black text-center">Matrícula</th>
-              <th className="py-2 px-4 border border-black text-center text-sm">Nombre</th>
-              <th className="py-2 px-4 border border-black text-center text-sm">Grupo</th>
-              <th className="py-2 px-4 border border-black text-center text-sm">Materia</th>
-              <th className="py-2 px-4 border border-black text-center text-sm">Carrera</th>
-              <th className="py-2 px-4 border border-black text-center text-sm">Nombre Laboratorio</th>
-              <th className="py-2 px-4 border border-black text-center text-sm">Fecha y Hora de Registro</th>
+              <th className="py-2 px-4 border-r-2 border-gray-700 text-center">ID</th>
+              <th className="py-2 px-4 border-r-2 border-gray-700 text-center">Matrícula</th>
+              <th className="py-2 px-4 border-r-2 border-gray-700  text-center text-sm">Nombre</th>
+              <th className="py-2 px-4 border-r-2 border-gray-700  text-center text-sm">Grupo</th>
+              <th className="py-2 px-4 border-r-2 border-gray-700  text-center text-sm">Materia</th>
+              <th className="py-2 px-4 border-r-2 border-gray-700  text-center text-sm">Carrera</th>
+              <th className="py-2 px-4 border-r-2 border-gray-700  text-center text-sm">Nombre Laboratorio</th>
+              <th className="py-2 px-4 border-r-2 border-gray-700  text-center text-sm">Fecha y Hora de Registro</th>
             </tr>
           </thead>
           <tbody>
             {registrosMostrados.map((registro) => (
               <tr key={registro.id}>
-                <td className="py-2 px-4 border border-black text-center text-xs">{registro.id}</td>
-                <td className="py-2 px-4 border border-black text-center text-xs">{registro.matricula}</td>
-                <td className="py-2 px-4 border border-black text-center text-xs">{registro.nombre}</td>
-                <td className="py-2 px-4 border border-black text-center text-xs">{registro.grupo}</td>
-                <td className="py-2 px-4 border border-black text-center text-xs">{registro.materia}</td>
-                <td className="py-2 px-4 border border-black text-center text-xs">{registro.carrera}</td>
-                <td className="py-2 px-4 border border-black text-center text-xs">{registro.nombreLaboratorio}</td>
-                <td className="py-2 px-4 border border-black text-center text-xs">{registro.fechaRegistroApp}</td>
+                <td className="py-2 px-4 bg-[#e2e2e2] border-r-2 border-gray-700 text-center text-xs">1{registro.id}</td>
+                <td className="py-2 px-4 bg-[#e2e2e2] border-r-2 border-gray-700 text-center text-xs">adsf{registro.matricula}</td>
+                <td className="py-2 px-4 bg-[#e2e2e2] border-r-2 border-gray-700 text-center text-xs">asdf{registro.nombre}</td>
+                <td className="py-2 px-4 bg-[#e2e2e2] border-r-2 border-gray-700 text-center text-xs">adsf{registro.grupo}</td>
+                <td className="py-2 px-4 bg-[#e2e2e2] border-r-2 border-gray-700 text-center text-xs">asdf{registro.materia}</td>
+                <td className="py-2 px-4 bg-[#e2e2e2] border-r-2 border-gray-700  text-center text-xs">asdf{registro.carrera}</td>
+                <td className="py-2 px-4 bg-[#e2e2e2] border-r-2 border-gray-700 text-center text-xs">asdf{registro.nombreLaboratorio}</td>
+                <td className="py-2 px-4 bg-[#e2e2e2] border-r-2 border-gray-700 text-center text-xs">asdfds{registro.fechaRegistroApp}</td>
               </tr>
             ))}
           </tbody>

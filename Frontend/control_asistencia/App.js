@@ -47,7 +47,7 @@ const App = () => {
 
   const obtenerCarreras = async () => {
     try {
-      const respuesta = await axios.get('http://192.168.100.8:3001/carrera');
+      const respuesta = await axios.get('http://192.168.100.38:3000/carrera');
       establecerCarreras(respuesta.data);
     } catch (error) {
       console.error('Error al obtener carreras:', error);
@@ -84,7 +84,7 @@ const App = () => {
   const manejarEnvio = async () => {
     try {
       if (tiempoTranscurrido >= 3600) { // 3600 segundos = 1 hora
-        const respuesta = await axios.post('http://192.168.100.8:3001/guardarInformacion', {
+        const respuesta = await axios.post('http://192.168.100.38:3000/guardarInformacion', {
           matricula: formularioDatos.input1,
           nombre: formularioDatos.input2,
           grupo: formularioDatos.input3,
